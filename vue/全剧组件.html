@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <winter></winter>
+</div>
+<div id="box1">
+    <winter></winter>
+</div>
+</body>
+<script>
+    Vue.component("winter",{
+        data:function () {
+            show:false
+
+        },
+        template:`
+        <div><h1> winter dong</h1></div>
+        `
+    })
+    new Vue({
+        el:"#box"
+    })
+    new Vue({
+        el:"#box1"
+    })
+</script>
+</html>

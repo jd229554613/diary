@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <span>{{a}}</span><br>
+    {{b}}
+</div>
+</body>
+<script>
+    let vm=new Vue({
+        el:"#box",
+        data:{
+          name:"winter",
+            a:1111,
+            b:2222
+        },
+
+    });
+    vm.$watch("a",function () {
+        alert("a值发生了变化");
+        this.b=this.a+100
+    });
+    document.onclick=function () {
+        vm.a=333;
+    }
+</script>
+</html>

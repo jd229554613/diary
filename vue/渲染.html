@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script>
+    let vm=new Vue({
+        el:"#box",
+        data:{},
+        render(createElement){
+            return createElement(
+                "ul",{
+                    class:{
+                       bg:true
+                    },
+                    style: {fontSize:"30px",background:"red"}
+                }, [
+                    createElement("li",2),
+                    createElement("li",3),
+                    createElement("li",1)
+                ]
+            )
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="app">{{age>30?"yes":"no"}}
+    <button id="btn">winter</button>
+<div v-html="tpl"></div>
+    <input type="text" v-model="age">
+    <button onclick="destroy()">摧毁</button>
+</div>
+
+</body>
+<script>
+
+    //vue的声明，数据双向绑定和生命周期
+let vm=new Vue({
+    el:"#app",
+    data:{
+        message:'start',
+        name:"swinter.jing",age:3+22,
+        tpl:"<h1>hello winter</h1>"
+    },
+    beforeCreate(){
+          alert("实例创建前")
+    },
+    created(){
+        alert("实例已经创建完成")
+    },
+    beforeMount(){
+        alert("实例挂载前")
+
+    },
+    mounted(){
+        alert("实例挂载完成");
+        $("#btn").click(function () {
+            alert("快下课了")
+        });
+
+    },
+    beforeUpdate(){
+      alert("数据更新前")
+    },
+    updated(){
+        alert("数据更新完成")
+    },
+    beforeDestroy(){
+        alert("实例销毁前")
+    },
+    destroyed(){
+         alert("实例销毁成功")
+    }
+})
+function destroy() {
+    vm.$destroy()
+}
+</script>
+</html>

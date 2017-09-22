@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <span>{{a}}</span><br>
+    {{b}}{{obj.name}}
+</div>
+</body>
+<script>
+    let vm=new Vue({
+        el:"#box",
+        data:{
+            name:"winter",
+            a:1111,
+            b:2222,
+            obj:{
+                name:'dong',
+                age:18
+            }
+        },
+
+    });
+    vm.$watch("obj",function () {
+        alert(this.obj.name);
+//需要深层监听
+    },{deep:true});
+    document.onclick=function () {
+        vm.obj.name="sheng";
+    }
+</script>
+</html>

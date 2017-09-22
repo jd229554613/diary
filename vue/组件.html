@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="box">
+    <winter-dong></winter-dong>
+</div>
+</body>
+<script type="x-template" id="tpl">
+<div>
+    <h2 @click="change">标题{{msg}}</h2>
+    <ul>
+        <li v-for="val in arr">{{val}}</li>
+    </ul>
+</div>
+</script>
+<script>
+    let vm=new Vue({
+        el:"#box",
+        components:{
+            //template里面必须有一个成对的根标签
+            "winterDong":{
+                data(){
+                    return{
+msg:"hello world",
+                        arr:['apple','banner','oringes','lizi']
+                    }
+                },
+                methods:{
+                    change(){
+                        this.msg="chenged"
+                    }
+                },
+                template:"#tpl"
+            }
+        }
+    })
+</script>
+</html>

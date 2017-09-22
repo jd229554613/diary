@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<body>
+<div id="box"><div v-if="been">看见你了</div>
+    <div :winter="mes" @mouseover="show">他的winter是{{mes}}</div>
+    <img :src="src" alt="">
+    <div @dblclick="show">点我</div>{{arr}}
+    <button @click="chenge">点击</button>
+<div v-show="flag"  style="width: 100px;height: 100px;background-color: red"></div>
+</div>
+
+</body>
+<script>
+    let vm=new Vue({
+        el:"#box",
+        data:{
+            flag:true,
+            mes:"hello wordl",
+            been:false,
+            id:"000000",
+            src:"https://i.maxthonimg.com/v6/index/logo-20150727.png",
+            arr:['1','2','3','4','44']
+        },
+        methods:{
+            show:function () {
+                console.log("调用了show方法");
+                this.arr.push(Math.random())
+            },
+            chenge() {
+                this.flag=!this.flag;
+            }
+        }
+    })
+</script>
+</html>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+    <!--<title>Document</title>-->
+    <!--<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>-->
+
+<!--</head>-->
+
+<!--<body>-->
+<!--<div id="box">-->
+    <!--<p v-if="seen">现在你看到我了</p>-->
+    <!--<div :id="id">id的值为{{id}}</div>-->
+    <!--<div :stark="msg">msg的值为{{msg}}</div>-->
+    <!--<img :src="imgs" style="width:100px;">-->
+<!--</div>-->
+
+<!--<script>-->
+    <!--let data = {-->
+        <!--msg: "hello stark",-->
+        <!--id: '00000',-->
+        <!--seen: false,-->
+        <!--imgs: 'https://cn.vuejs.org/images/logo.png'-->
+    <!--}-->
+    <!--let vm = new Vue({-->
+        <!--el: "#box",-->
+        <!--data: data-->
+    <!--})-->
+<!--</script>-->
+<!--</body>-->
+
+<!--</html>-->
